@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>MoneyTracker.Host.Api</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MoneyTracker.Infrastructure.MySql.QueryService\MoneyTracker.Infrastructure.MySql.QueryService.csproj" />
+      <ProjectReference Include="..\MoneyTracker.Infrastructure.MySql.Repository\MoneyTracker.Infrastructure.MySql.Repository.csproj" />
+      <ProjectReference Include="..\MoneyTracker.Infrastructure.MySql\MoneyTracker.Infrastructure.MySql.csproj" />
+    </ItemGroup>
+
+</Project>

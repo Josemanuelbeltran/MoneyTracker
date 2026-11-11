@@ -1,0 +1,7 @@
+# Los ficheros que acaban en un Linux van SIEMPRE con finales de linea LF, aunque
+# se editen desde Windows: un script con CRLF falla con un "bad interpreter" que
+# no dice nada, y systemd tampoco lleva bien los .service/.timer con CRLF.
+*.sh text eol=lf
+*.service text eol=lf
+*.timer text eol=lf
+*.example text eol=lf

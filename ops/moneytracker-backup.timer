@@ -1,0 +1,13 @@
+[Unit]
+Description=Backup diario de la BD moneytracker
+
+[Timer]
+# Todos los dias a las 03:30, con unos minutos de margen para no coincidir
+# con otras tareas que arranquen a la hora en punto.
+OnCalendar=*-*-* 03:30:00
+RandomizedDelaySec=5m
+# Si el servidor estaba apagado a esa hora, se ejecuta al arrancar.
+Persistent=true
+
+[Install]
+WantedBy=timers.target

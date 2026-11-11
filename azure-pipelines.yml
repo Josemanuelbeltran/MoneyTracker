@@ -1,0 +1,57 @@
+trigger:
+  branches:
+    include:
+      - main
+
+name: "$(Major).$(Minor).$(Rev:r)"
+
+pool:
+  name: MiServidor
+
+variables:
+  - group: MoneyTracker
+
+steps:
+  - checkout: self
+    clean: true
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: 'Instalar Node.js'
+
+  - script: |
+      cd front
+      npm ci
+      npx ng analytics off
+      npm run build
+    displayName: 'Compilar Frontend (Angular)'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '9.0.x'
+    displayName: 'Instalar .NET 9'
+
+  - script: |
+      cd back
+      dotnet publish MoneyTracker.Host.Api -c Release -r linux-x64 --self-contained true -o "$(Build.ArtifactStagingDirectory)/app"
+    displayName: 'Publicar Backend'
+
+  - script: |
+      mkdir -p "$(Build.ArtifactStagingDirectory)/app/wwwroot"
+      cp -r front/dist/app/browser/* "$(Build.ArtifactStagingDirectory)/app/wwwroot/"
+    displayName: 'Integrar Frontend en Backend'
+
+  - task: ArchiveFiles@2
+    displayName: 'Comprimir artefacto'
+    inputs:
+      rootFolderOrFile: "$(Build.ArtifactStagingDirectory)/app"
+      includeRootFolder: false
+      archiveType: 'tar'
+      tarCompression: 'gz'
+      archiveFile: "$(Build.ArtifactStagingDirectory)/moneytracker-$(Build.BuildNumber).tar.gz"
+
+  - publish: "$(Build.ArtifactStagingDirectory)/moneytracker-$(Build.BuildNumber).tar.gz"
+    artifact: drop
+    displayName: 'Publicar Artefacto'

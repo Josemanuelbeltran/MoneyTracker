@@ -1,0 +1,27 @@
+-- =========================================================
+-- Script0014_SpreadGroupVarchar
+-- `spread_group` pasa de CHAR(36) a VARCHAR(36).
+--
+-- MySqlConnector lee POR DEFECTO toda columna CHAR(36) como System.Guid
+-- (opcion de conexion GuidFormat, cuyo valor por defecto es Char36). La
+-- propiedad del DTO es un string, asi que EF llamaba a GetString() y el driver
+-- le devolvia un Guid:
+--
+--   System.InvalidCastException: Unable to cast object of type 'System.Guid'
+--   to type 'System.String'. at MySqlConnector.MySqlDataReader.GetString(...)
+--
+-- Y como el listado de gastos trae TODAS las filas del usuario, bastaba con que
+-- UNA tuviera spread_group relleno para tumbar GET /expenses entero (y de paso
+-- /recurring/generate, que tambien lee gastos). Paso en produccion el 2026-10-26
+-- con el primer prorrateo real: hasta entonces la columna estaba siempre a NULL
+-- y el driver nunca tenia que convertir nada.
+--
+-- VARCHAR(36) no sufre esa conversion automatica: solo la sufre CHAR(36). Es la
+-- unica columna CHAR(36) del esquema.
+--
+-- No toca datos: MODIFY conserva el valor y el indice ix_expenses_spread_group.
+-- En produccion ya se ejecuto a mano para desbloquear la app, asi que alli este
+-- script es un no-op (MODIFY sobre una columna que ya es VARCHAR(36) no falla).
+-- =========================================================
+
+ALTER TABLE `Expenses` MODIFY COLUMN `spread_group` VARCHAR(36) NULL;

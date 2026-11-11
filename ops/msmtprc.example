@@ -1,0 +1,26 @@
+# Plantilla de /etc/msmtprc — la cuenta por la que sale el correo del backup.
+#
+# En el servidor va en /etc/msmtprc, de root y con permisos 600: lleva una
+# contraseña dentro, asi que NUNCA se sube al repo con los datos rellenos.
+#
+#   sudo install -m 600 -o root -g root ops/msmtprc.example /etc/msmtprc
+#   sudo nano /etc/msmtprc     # rellenar las tres lineas de abajo
+#
+# Con Gmail NO vale la contraseña normal de la cuenta: hay que tener la
+# verificacion en dos pasos y generar una "contraseña de aplicacion" de 16
+# letras en https://myaccount.google.com/apppasswords
+
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        /var/log/msmtp.log
+
+account        gmail
+host           smtp.gmail.com
+port           587
+from           TU_CORREO@gmail.com
+user           TU_CORREO@gmail.com
+password       LA_CONTRASEÑA_DE_APLICACION
+
+account default : gmail

@@ -1,0 +1,18 @@
+[Unit]
+Description=Backup de la BD moneytracker (MariaDB)
+# Sin la BD levantada no hay nada que copiar.
+After=mariadb.service
+Requires=mariadb.service
+
+[Service]
+# A donde se manda la copia. El "-" es para que el backup se haga igual
+# aunque el fichero no exista todavia.
+EnvironmentFile=-/etc/default/moneytracker-backup
+Type=oneshot
+# Como root: asi el dump entra por unix_socket y la contraseña de la BD no se
+# guarda en ningun sitio.
+User=root
+ExecStart=/usr/local/bin/backup-moneytracker.sh
+# Si falla, que se vea en systemctl status y en el journal.
+StandardOutput=journal
+StandardError=journal

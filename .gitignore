@@ -1,0 +1,24 @@
+# ---------- .NET ----------
+bin/
+obj/
+*.user
+*.suo
+
+# ---------- Node / Angular ----------
+node_modules/
+front/dist/
+front/.angular/
+npm-debug.log
+
+# ---------- Backups de BD (no versionar volcados de datos) ----------
+backups/
+/*.sql
+*_backup.sql
+
+# ---------- IDEs ----------
+.vs/
+.idea/
+
+# ---------- Sistema ----------
+.DS_Store
+Thumbs.db

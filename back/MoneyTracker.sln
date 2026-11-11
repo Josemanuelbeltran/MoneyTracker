@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTracker.Domain", "MoneyTracker.Domain\MoneyTracker.Domain.csproj", "{D4C900D2-67C5-4F7E-A78C-2171D800E6F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTracker.Application", "MoneyTracker.Application\MoneyTracker.Application.csproj", "{D4F757BA-1D72-431B-8048-AFC3C950D781}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTracker.Infrastructure.MySql", "MoneyTracker.Infrastructure.MySql\MoneyTracker.Infrastructure.MySql.csproj", "{91A280FA-AD31-4C05-955C-C9D0B1F4D7D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTracker.Infrastructure.MySql.Repository", "MoneyTracker.Infrastructure.MySql.Repository\MoneyTracker.Infrastructure.MySql.Repository.csproj", "{36AA51CC-5635-4918-9280-4C6390100484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTracker.Infrastructure.MySql.QueryService", "MoneyTracker.Infrastructure.MySql.QueryService\MoneyTracker.Infrastructure.MySql.QueryService.csproj", "{DEDCA030-972D-4A64-86CD-842EC9CBEFDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoneyTracker.Host.Api", "MoneyTracker.Host.Api\MoneyTracker.Host.Api.csproj", "{0CEDAB19-105E-4F40-823B-2E53B339E564}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4C900D2-67C5-4F7E-A78C-2171D800E6F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4C900D2-67C5-4F7E-A78C-2171D800E6F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4C900D2-67C5-4F7E-A78C-2171D800E6F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4C900D2-67C5-4F7E-A78C-2171D800E6F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4F757BA-1D72-431B-8048-AFC3C950D781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4F757BA-1D72-431B-8048-AFC3C950D781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4F757BA-1D72-431B-8048-AFC3C950D781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4F757BA-1D72-431B-8048-AFC3C950D781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A280FA-AD31-4C05-955C-C9D0B1F4D7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A280FA-AD31-4C05-955C-C9D0B1F4D7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A280FA-AD31-4C05-955C-C9D0B1F4D7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A280FA-AD31-4C05-955C-C9D0B1F4D7D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AA51CC-5635-4918-9280-4C6390100484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AA51CC-5635-4918-9280-4C6390100484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AA51CC-5635-4918-9280-4C6390100484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AA51CC-5635-4918-9280-4C6390100484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEDCA030-972D-4A64-86CD-842EC9CBEFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEDCA030-972D-4A64-86CD-842EC9CBEFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEDCA030-972D-4A64-86CD-842EC9CBEFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEDCA030-972D-4A64-86CD-842EC9CBEFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CEDAB19-105E-4F40-823B-2E53B339E564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CEDAB19-105E-4F40-823B-2E53B339E564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CEDAB19-105E-4F40-823B-2E53B339E564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CEDAB19-105E-4F40-823B-2E53B339E564}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

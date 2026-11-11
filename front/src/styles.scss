@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "primeicons/primeicons.css";
+
+:root {
+  --bm-bg: #0F1419;
+  --bm-sidebar: #161B22;
+  --bm-surface: #1C2128;
+  --bm-surface-2: #22272E;
+  --bm-border: #2A3038;
+  --bm-text: #E6EDF3;
+  --bm-muted: #8B949E;
+  --bm-cyan: #2EC5FF;
+  --bm-success: #3FB950;
+  --bm-danger: #F85149;
+  --bm-warning: #F0883E;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background-color: var(--bm-bg);
+  color: var(--bm-text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bm-bg); }
+::-webkit-scrollbar-thumb { background: var(--bm-border); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #3a414b; }
+
+/* Clases de componente reutilizables (estilo BM2) */
+@layer components {
+  .mt-input {
+    @apply w-full rounded-lg border border-bm-border bg-bm-surface-2 px-3 py-2 text-sm text-bm-text outline-none transition-colors placeholder:text-bm-muted focus:border-bm-cyan;
+  }
+  .mt-label {
+    @apply mb-1 block text-xs font-medium text-bm-muted;
+  }
+  .mt-btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .mt-btn-cyan { @apply mt-btn bg-bm-cyan text-bm-bg hover:bg-[#1FA8DC]; }
+  .mt-btn-ghost { @apply mt-btn border border-bm-border text-bm-text hover:bg-bm-surface; }
+  .mt-btn-danger { @apply mt-btn bg-bm-danger text-bm-bg hover:bg-[#D93A32]; }
+  .mt-card { @apply rounded-2xl border border-bm-border bg-bm-surface; }
+}
